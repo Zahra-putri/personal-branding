@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zahra Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rasputin&display=swap" rel="stylesheet">
+    <style>
+
+          body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+          }
+
+          header {
+              background-color:  #4b3a3a;
+              padding: 10px 20px;
+              border-bottom: 1px solid #ddd;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              position: fixed;
+              width: 100%;
+              top: 0;
+              z-index: 1000;
+              box-sizing: border-box;
+          }
+
+          .logo {
+              color: #ddd;
+              font-size: 20px;
+              font-weight: bold;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+          }
+
+          .nav-links {
+              display: flex;
+              list-style: none;
+              margin: 0;
+              padding: 0;
+          }
+
+          .nav-links li {
+              margin: 0 15px;
+          }
+
+          .nav-links a {
+              text-decoration: none;
+              color: #ddd;
+              font-weight: bold;
+          }
+
+          .sidebar {
+              width: 250px;
+              height: 100vh;
+              background-color: #f9f9f9;
+              position: fixed;
+              top: 0;
+              left: -250px;
+              transition: left 0.3s ease;
+              box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+              z-index: 999;
+              overflow-y: auto;
+          }
+
+          .sidebar.active {
+              left: 0;
+          }
+
+          .sidebar ul {
+              list-style: none;
+              padding: 0;
+              margin: 0;
+          }
+
+          .sidebar ul li {
+              padding: 15px 20px;
+              border-bottom: 1px solid #ddd;
+          }
+
+          .sidebar ul li a {
+              text-decoration: none;
+              color: #333;
+              font-weight: bold;
+          }
+
+          .overlay {
+              display: none;
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: rgba(0, 0, 0, 0.5);
+              z-index: 998;
+          }
+
+          .menu-toggle {
+              font-size: 20px;
+              display: none;
+              flex-direction: column;
+              cursor: pointer;
+              margin-left: auto;
+          }
+
+          .menu-toggle span {
+              height: 3px;
+              width: 25px;
+              background-color: #ddd;
+              margin: 4px 0;
+              border-radius: 2px;
+          }
+
+          @media screen and (max-width: 768px) {
+              .nav-links {
+                  display: none;
+              }
+
+              .menu-toggle {
+                  display: flex;
+              }
+
+              .logo {
+                  flex: 1;
+                  max-width: 70%;
+              }
+          }
+
+          @media screen and (min-width: 769px) {
+              .sidebar {
+                  display: none;
+              }
+
+              .overlay {
+                  display: none;
+              }
+          }
+
+    
+      .hero {
+        position: relative;
+        height: 100vh;
+        background-image: url('bunga.jpeg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.7); /* Efek transparan */
+        z-index: 1;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        color: #6a4f4b;
+        padding-top: 15%;
+      }
+      .hero-content .welcome {
+        font-size: 80px;
+      }
+      
+      .hero-content .to {
+        font-size: 40px;
+      }
+      
+      .hero-content .zahra {
+        font-size: 60px;
+      }
+
+      .hero-content h1 {
+        font-family: 'Rasputin', cursive;
+        font-weight: bold;
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        width: 80%; /* Changed from 50% to 80% for better responsiveness */
+        margin: 0 auto;
+      }
+
+      @media (max-width: 768px) {
+
+        .hero-content{
+          position: relative;
+          text-align: center;
+        }
+        .hero-content .welcome {
+          font-size: 50px;
+           /* Adjusted for smaller screens */
+        }
+        
+        .hero-content .to {
+          font-size: 30px; /* Adjusted for smaller screens */
+        }
+        
+        .hero-content .zahra {
+          font-size: 40px; /* Adjusted for smaller screens */
+        }
+
+        .hero-content p {
+          font-size: 20px; /* Adjusted for smaller screens */
+        }
+      }
+
+      @media (max-width: 480px) {
+
+        .hero-content{
+          position: relative;
+          text-align: center;
+        }
+        .hero-content .welcome {
+          font-size: 30px; /* Further adjustment for very small screens */
+        }
+        
+        .hero-content .to {
+          font-size: 20px; /* Further adjustment for very small screens */
+        }
+        
+        .hero-content .zahra {
+          font-size: 30px; /* Further adjustment for very small screens */
+        }
+
+        .hero-content p {
+          font-size: 16px; /* Further adjustment for very small screens */
+        }
+      }
+
+      .hero-content p {
+        font-size: 24px;
+        color: #6d4a6f;
+        margin: 10px 0 0;
+      }
+      .flowers {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 150px;
+        background: url('flowers.png') repeat-x; /* Gambar bunga tulip */
+        background-size: contain;
+      }
+
+      .star-line {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 20px;
+      }
+      
+      .star-line .line {
+        width: 50px;
+        height: 2px;
+        background-color: #ffd700;
+      }
+      
+      .star-line .stars {
+        font-size: 24px;
+        color: #ffd700;
+      }
+
+      footer {
+      background-color: #f7adba;
+      padding: 20px;
+      text-align: center;
+      font-size: 1.2em;
+      color: #1b1212;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      z-index: 1000;
+      left: 0;
+    }
+
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">PERSONAL BRANDING</div>
+      <div class="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+      </div>
+      <ul class="nav-links">
+          
+          <li><a href="home.html">HOME</a></li>
+          <li><a href="about.html">ABOUT ME</a></li>
+          <li><a href="biodata.html">BIODATA</a></li>
+          <li><a href="riwayat.html">RIWAYAT</a></li>
+          <li><a href="contact.html">CONTACT</a></li>
+      </ul>
+  </header>
+
+  <div id="sidebar" class="sidebar">
+      <ul>
+          <li><a href="home.html">HOME</a></li>
+          <li><a href="home.html">HOME</a></li>
+          <li><a href="about.html">ABOUT ME</a></li>
+          <li><a href="biodata.html">BIODATA</a></li>
+          <li><a href="riwayat.html">RIWAYAT</a></li>
+          <li><a href="contact.html">CONTACT</a></li>
+      </ul>
+  </div>
+
+  <div class="overlay"></div>
+
+  <script>
+      const menuToggle = document.querySelector('.menu-toggle');
+      const sidebar = document.querySelector('.sidebar');
+      const overlay = document.querySelector('.overlay');
+
+      menuToggle.addEventListener('click', () => {
+          sidebar.classList.toggle('active');
+          overlay.style.display = sidebar.classList.contains('active') ? 'block' : 'none';
+      });
+
+      overlay.addEventListener('click', () => {
+          sidebar.classList.remove('active');
+          overlay.style.display = 'none';
+      });
+  </script>
+    
+    <div class="hero">
+      <div class="hero-content">
+        <h1>
+          <div class="welcome">WELCOME</div>
+          <div class="to">TO</div>
+          <div class="zahra">ZAHRA WEBSITE</div>
+        </h1>
+        <div class="star-line">
+          <span class="line"></span>
+          <span class="stars">✦✦✦</span>
+          <span class="line"></span>
+        </div>
+      </div>
+      <div class="pink-line"></div>
+      <div class="flowers"></div>
+    </div>
+    <footer>Design Web by Zaharani Zuardi Putri © 2025</footer>
+    <script>
+    </script>
+  
+  </body>
+  </body>
+</html>

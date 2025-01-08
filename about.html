@@ -1,0 +1,410 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Branding</title>
+<body>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rasputin&display=swap');
+       
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+          }
+
+          header {
+              background-color:  #4b3a3a;
+              padding: 10px 20px;
+              border-bottom: 1px solid #ddd;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              position: fixed;
+              width: 100%;
+              top: 0;
+              z-index: 1000;
+              box-sizing: border-box;
+          }
+
+          .logo {
+              color: #ddd;
+              font-size: 20px;
+              font-weight: bold;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+          }
+
+          .nav-links {
+              display: flex;
+              list-style: none;
+              margin: 0;
+              padding: 0;
+          }
+
+          .nav-links li {
+              margin: 0 15px;
+          }
+
+          .nav-links a {
+              text-decoration: none;
+              color: #ddd;
+              font-weight: bold;
+          }
+
+          .sidebar {
+              width: 250px;
+              height: 100vh;
+              background-color: #f9f9f9;
+              position: fixed;
+              top: 0;
+              left: -250px;
+              transition: left 0.3s ease;
+              box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+              z-index: 999;
+              overflow-y: auto;
+          }
+
+          .sidebar.active {
+              left: 0;
+          }
+
+          .sidebar ul {
+              list-style: none;
+              padding: 0;
+              margin: 0;
+          }
+
+          .sidebar ul li {
+              padding: 15px 20px;
+              border-bottom: 1px solid #ddd;
+          }
+
+          .sidebar ul li a {
+              text-decoration: none;
+              color: #333;
+              font-weight: bold;
+          }
+
+          .overlay {
+              display: none;
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: rgba(0, 0, 0, 0.5);
+              z-index: 998;
+          }
+
+          .menu-toggle {
+              font-size: 20px;
+              display: none;
+              flex-direction: column;
+              cursor: pointer;
+              margin-left: auto;
+          }
+
+          .menu-toggle span {
+              height: 3px;
+              width: 25px;
+              background-color: #ddd;
+              margin: 4px 0;
+              border-radius: 2px;
+          }
+
+          @media screen and (max-width: 768px) {
+              .nav-links {
+                  display: none;
+              }
+
+              .menu-toggle {
+                  display: flex;
+              }
+
+              .logo {
+                  flex: 1;
+                  max-width: 70%;
+              }
+          }
+
+          @media screen and (min-width: 769px) {
+              .sidebar {
+                  display: none;
+              }
+
+              .overlay {
+                  display: none;
+              }
+          }
+        .wrapper {
+            background: url('tulipbg.png') no-repeat center center/cover;
+            background-color: #fdf3f3; /* Pink background */
+            flex: 1; /* Membuat konten utama mengambil ruang penuh */
+            padding: 80px 20px 20px; /* Tambahkan padding atas untuk menghindari header */
+        }
+        .pink-box {
+            background-color: #fbb1d2;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 10px;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .profile-column {
+            background-color: #dce7f3; /* Biru Pucat */
+            width: 45%; /* Lebar default */
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-column img {
+            width: 170px;
+            height: 190px;
+            border-radius: 10%;
+            border-color: #914623;
+            border: #914623;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .skills {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            width: 100%;
+        
+        }
+
+        .skill-box {
+            background-color: #A0522D; /* Brown */
+            color: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .skill-box:hover {
+            transform: scale(1.1);
+        }
+
+        .content-column {
+            width: 55%; /* Lebar kolom kanan */
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            overflow-y: auto;
+            flex-direction: column;
+            justify-content: center;
+        
+        
+        }
+        .content-column p{
+            margin-top: 2px;
+            font-size: 17px;
+            font-weight: bold;
+        }
+        .content-column h1 {
+            font-size: 20px;
+            font-style: bold;
+            margin-bottom: 5px !important;
+            color: #914623;
+        }
+        .content-column h2 {
+            font-size: 30px;
+            font-family: 'Rasputin', cursive;
+        
+        }
+        .content-column h3{
+            font-size: 18px;
+            
+        }
+        .content-column h1, h2{
+            margin-top: 5px !important;
+            margin-bottom: 5px !important;
+
+       
+        }
+        footer {
+            background-color: #f7adba;
+            padding: 5px 0;
+            text-align: center;
+            font-size: 1.2em;
+            color: #1b1212;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            left: 0;
+        }
+
+        /* Media Queries untuk Responsivitas */
+        @media (max-width: 768px) {
+            .pink-box {
+                padding: 15px;
+            }
+            .container {
+                flex-direction: column; /* Kolom menjadi vertikal */
+                gap: 20px; /* Jarak antara kolom tetap */
+            }
+
+            .profile-column,
+            .content-column {
+                width: 100%; /* Lebar penuh */
+                padding: 0;
+            }
+
+            .skills {
+                grid-template-columns: 1fr; /* Satu kolom */
+                
+            }
+            .skill-box{
+                padding: 10px;
+                font-size: 15;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .pink-box {
+                padding: 15px;
+            }
+            .profile-column img {
+                width: 120px;
+                height: 120px;
+            }
+            .pink-box {
+                margin: 10px;
+                padding: 10px;
+            }
+            .skill-box {
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            .content-column h1 {
+                font-size: 1.5em;
+            }
+
+            .content-column p {
+                font-size: 0.9em;
+            }
+            
+            footer {
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <body>
+        <header>
+          <div class="logo">PERSONAL BRANDING</div>
+          <div class="menu-toggle">
+              <span></span>
+              <span></span>
+              <span></span>
+          </div>
+          <ul class="nav-links">
+              
+              <li><a href="home.html">HOME</a></li>
+              <li><a href="about.html">ABOUT ME</a></li>
+              <li><a href="biodata.html">BIODATA</a></li>
+              <li><a href="riwayat.html">RIWAYAT</a></li>
+              <li><a href="contact.html">CONTACT</a></li>
+          </ul>
+      </header>
+    
+      <div id="sidebar" class="sidebar">
+          <ul>
+              <li><a href="home.html">HOME</a></li>
+              <li><a href="home.html">HOME</a></li>
+              <li><a href="about.html">ABOUT ME</a></li>
+              <li><a href="biodata.html">BIODATA</a></li>
+              <li><a href="riwayat.html">RIWAYAT</a></li>
+              <li><a href="contact.html">CONTACT</a></li>
+          </ul>
+      </div>
+    
+      <div class="overlay"></div>
+    
+      <script>
+          const menuToggle = document.querySelector('.menu-toggle');
+          const sidebar = document.querySelector('.sidebar');
+          const overlay = document.querySelector('.overlay');
+    
+          menuToggle.addEventListener('click', () => {
+              sidebar.classList.toggle('active');
+              overlay.style.display = sidebar.classList.contains('active') ? 'block' : 'none';
+          });
+    
+          overlay.addEventListener('click', () => {
+              sidebar.classList.remove('active');
+              overlay.style.display = 'none';
+          });
+      </script>
+
+
+
+    
+        <div class="wrapper">
+            <div class="pink-box">
+                <div class="container">
+                    <!-- Kolom Kiri -->
+                    <div id="profile" class="profile-column">
+                        <img src="rraaa.jpg" alt="Profile Picture">
+                        <h2>Soft Skill Saya</h2>
+                        <div id="skills" class="skills">
+                            <div class="skill-box">Good Listener<br><small>Paham pentingnya mendengarkan tanpa menghakimi dan memberi ruang bagi orang lain untuk berbicara.</small></div>
+                            <div class="skill-box">Problem Solving<br><small>Terampil mencari solusi untuk setiap masalah dengan pendekatan yang tenang logis, dan efektif.</small></div>
+                            <div class="skill-box">Kreativitas<br><small>Mampu menghasilkan ide-ide unik dan out-of-the-box yang memberikan nilai tambahaan.</small></div>
+                            <div class="skill-box">Adaptasi<br><small>Cepat beradaptasi dengan situasi baru dan flexsibel dalam menghadapi perubahan.</small></div>
+                        </div>
+                    </div>
+
+                    <div id="about" class="content-column">
+                        <h1>STUDENT</h1>
+                        <h2>Zaharani Zuardi Putri</h2>
+                        
+                        <h3>Halo, saya Zahra, mahasiswa Informatika dari Universitas Teknologi Yogyakarta, Fakultas Sains dan Teknologi. 
+                            Saat ini, saya fokus mengembangkan keahlian di bidang teknologi dan desain. Awalnya, saya bersekolah di SMK 
+                            dengan jurusan Desain Komunikasi Visual (DKV), namun saya memutuskan untuk melanjutkan studi di Informatika 
+                            karena saya merasa teknologi sangat menarik dan memiliki potensi besar untuk mengubah dunia. Meskipun saya 
+                            kini berada di jurusan Informatika, saya tetap mengasah kemampuan desain, khususnya dalam UI/UX, 
+                            dan bercita-cita menjadi seorang data scientist atau programmer yang dapat mengembangkan solusi berbasis 
+                            teknologi yang dapat berdampak besar.</h3>
+
+                            <p>Saya selalu bersemangat untuk belajar hal baru dan terus berkembang dalam bidang teknologi, 
+                                agar bisa menciptakan inovasi yang bermanfaat. Selain itu, saya juga menyukai menggambar, 
+                                mengarang atau menulis cerita, dan saya menyukai sate. Saya suka warna pink dan biru langit, 
+                                yang mencerminkan sisi kreatif dan penuh warna dalam hidup saya.
+                            </p>
+                </div>
+            </div>
+        </div>
+    <footer>
+        <p>Design Web by Zaharani Zuardi Putri © 2025</p>
+    </footer>
+
+</body>
+</html>

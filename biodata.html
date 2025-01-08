@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>biodata</title>
+        <link href="https://fonts.googleapis.com/css2?family=Rasputin&display=swap" rel="stylesheet">
+        <style>
+           
+           @import url('https://fonts.googleapis.com/css2?family=Rasputin&display=swap');
+            /* Main Content */
+            body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+          }
+
+          header {
+              background-color:  #4b3a3a;
+              padding: 10px 20px;
+              border-bottom: 1px solid #ddd;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              position: fixed;
+              width: 100%;
+              top: 0;
+              z-index: 1000;
+              box-sizing: border-box;
+          }
+
+          .logo {
+              color: #ddd;
+              font-size: 20px;
+              font-weight: bold;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+          }
+
+          .nav-links {
+              display: flex;
+              list-style: none;
+              margin: 0;
+              padding: 0;
+          }
+
+          .nav-links li {
+              margin: 0 15px;
+          }
+
+          .nav-links a {
+              text-decoration: none;
+              color: #ddd;
+              font-weight: bold;
+          }
+
+          .sidebar {
+              width: 250px;
+              height: 100vh;
+              background-color: #f9f9f9;
+              position: fixed;
+              top: 0;
+              left: -250px;
+              transition: left 0.3s ease;
+              box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+              z-index: 999;
+              overflow-y: auto;
+          }
+
+          .sidebar.active {
+              left: 0;
+          }
+
+          .sidebar ul {
+              list-style: none;
+              padding: 0;
+              margin: 0;
+          }
+
+          .sidebar ul li {
+              padding: 15px 20px;
+              border-bottom: 1px solid #ddd;
+          }
+
+          .sidebar ul li a {
+              text-decoration: none;
+              color: #333;
+              font-weight: bold;
+          }
+
+          .overlay {
+              display: none;
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: rgba(0, 0, 0, 0.5);
+              z-index: 998;
+          }
+
+          .menu-toggle {
+              font-size: 20px;
+              display: none;
+              flex-direction: column;
+              cursor: pointer;
+              margin-left: auto;
+          }
+
+          .menu-toggle span {
+              height: 3px;
+              width: 25px;
+              background-color: #ddd;
+              margin: 4px 0;
+              border-radius: 2px;
+          }
+
+          @media screen and (max-width: 768px) {
+              .nav-links {
+                  display: none;
+              }
+
+              .menu-toggle {
+                  display: flex;
+              }
+
+              .logo {
+                  flex: 1;
+                  max-width: 70%;
+              }
+          }
+
+          @media screen and (min-width: 769px) {
+              .sidebar {
+                  display: none;
+              }
+
+              .overlay {
+                  display: none;
+              }
+          }
+            .content {
+                display: flex;
+                height: calc(100vh - 40px);
+                background: url('tulipbg.png') no-repeat center center/cover;
+                 /* Tinggi total - tinggi footer */
+            }
+
+            .profile {
+                
+                margin-top: 20px;
+                background: #f8d5d5; /* Warna merah muda */
+                flex: 1; /* Lebar fleksibel */
+                padding: 20px;
+                text-align: center;
+            }
+
+            .profile .image {
+            
+                width: 200px;
+                height: 200px;
+                background: url(ccc.png)no-repeat center center/cover;;
+            
+                border-radius: 50%;
+                margin: 20px auto;
+            }
+
+            .profile h2 {
+                
+                font-size: 18px;
+                font-weight: bold;
+                margin: 10px 0;
+            }
+
+            .profile p {
+                font-size: 14px;
+                color: #555;
+            }
+            .profile h2 p{
+                margin-bottom: 30px !important;
+            }
+            /* Biodata Section */
+            .biodata {
+                margin-top: 20px;
+                background: #f9f3e7; /* Warna cream */
+                flex: 2; /* Lebar lebih besar dari bagian merah muda */
+                padding: 20px;
+                overflow-y: auto; /* Scroll jika tinggi konten melebihi layar */
+                height: 100%;
+            }
+
+            .biodata h2 {
+                font-family: 'Courier New', Courier, monospace;
+                font-size: 20px;
+                font-weight: bold;
+                margin-bottom: 20px;
+            }
+
+            .biodata h3{
+                font-size: 20px;
+                font-weight: bold;
+                margin-bottom: 20px;
+                font-family: 'Rasputin', cursive;
+            }
+            .biodata  .section {
+                margin-bottom: 20px;
+            }
+
+            .biodata h4 {
+                font-size: 20px;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+            .biodata ul {
+                list-style: none;
+                padding-left: 20px;
+            }
+
+            .biodata ul br {
+                margin-bottom: 10px;
+            }
+
+            /* Footer */
+            footer {
+                background-color: #f7adba;
+                padding: 5px 0;
+                text-align: center;
+                font-size: 1.2em;
+                color: #1b1212;
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                left: 0
+            }
+
+            .section-kemampuan ul li {
+                font-style: bold !important;
+                margin: top 3px; ;
+
+            }
+
+        </style>
+    </head>
+    <body>
+        <body>
+            <header>
+              <div class="logo">PERSONAL BRANDING</div>
+              <div class="menu-toggle">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+              </div>
+              <ul class="nav-links">
+                  
+                  <li><a href="home.html">HOME</a></li>
+                  <li><a href="about.html">ABOUT ME</a></li>
+                  <li><a href="biodata.html">BIODATA</a></li>
+                  <li><a href="riwayat.html">RIWAYAT</a></li>
+                  <li><a href="contact.html">CONTACT</a></li>
+              </ul>
+          </header>
+        
+          <div id="sidebar" class="sidebar">
+              <ul>
+                  <li><a href="home.html">HOME</a></li>
+                  <li><a href="home.html">HOME</a></li>
+                  <li><a href="about.html">ABOUT ME</a></li>
+                  <li><a href="biodata.html">BIODATA</a></li>
+                  <li><a href="riwayat.html">RIWAYAT</a></li>
+                  <li><a href="contact.html">CONTACT</a></li>
+              </ul>
+          </div>
+        
+          <div class="overlay"></div>
+        
+          <script>
+              const menuToggle = document.querySelector('.menu-toggle');
+              const sidebar = document.querySelector('.sidebar');
+              const overlay = document.querySelector('.overlay');
+        
+              menuToggle.addEventListener('click', () => {
+                  sidebar.classList.toggle('active');
+                  overlay.style.display = sidebar.classList.contains('active') ? 'block' : 'none';
+              });
+        
+              overlay.addEventListener('click', () => {
+                  sidebar.classList.remove('active');
+                  overlay.style.display = 'none';
+              });
+          </script>
+        
+        <main class="content">
+            <!-- Bagian Merah Muda -->
+            <div class="profile">
+                <div class="image">
+
+                </div>
+                <h2>ZAHARANI ZUARDI PUTRI</h2>
+                <p>INFORMATIKA<br>UNIVERSITAS TEKNOLOGI YOGYAKARTA</p>
+            </div>
+        
+            <!-- Bagian Cream -->
+            <div class="biodata">
+                <h3>BIODATA SAYA</h3>
+                <div class="section">
+                    <h4>Data Pribadi</h4>
+                    <ul>
+                        Nama Lengkap: Zaharani Zuardi Putri<br>
+                        Tempat, Tgl Lahir: Waetele, 27 Maret 2006 <br>
+                        Jenis Kelamin: Perempuan<br>
+                        kewarganegaraan: WNI<br>
+                        Agama: Islam<br>
+                        Golongan darah: O<br>
+                        Status: Belum Menikah<br>
+                        Tinggi badan: 170cm<br>
+                        Berat Badan: 45kg<br>
+                        Hobi: Menggambar, Membaca, dan Memasak<br>
+                        Alamat: trihanggo, kec.gamping, kab. sleman, DIY<br>
+                    </ul>
+                </div>
+                <div class="section">
+                    <h4>Pengalaman</h4>
+                    <ul>
+                            Organisasi Siswa Intra Sekolah SMP NEGERI 09 BURU<br>
+                            Organisasi Siswa Intra Sekolah SMK NEGERI 07 BURU<br>
+                            Magang atau PKL selama 6  bulan di PT Percetakan Kholik saat SMK<br>
+                
+                    </ul>
+                </div>
+                <div class="section-kemampuan">
+                    <h4>Kemampuan</h4>
+                    <ul>
+                        <li>HTML dan CSS dasar</li>- Membuat struktur dan tampilan web sederhana<br>
+                        <li>Desain Canva</li>- Membuat desain sederhana seperti poster, cv, atau konten media sosial<br>
+                        <li>Microsoft Office (word, excel, Power point)</li>- Menguasai Kebutuhan admistrasi dan presentasi dasar<br>
+                        <li>Dasar Pengolahan Gambar</li>- Mengedit gambar sederhana menggunakan aplikasi seperti Adobe Photoshop<br>
+                    </ul>
+                </div>
+            </div>
+        </main>
+        <!-- Footer -->
+        <footer>
+            <p>Design Web by Zaharani Zuardi Putri © 2025</p>
+        </footer>
+    </body>
+</html>
+</create_file>
